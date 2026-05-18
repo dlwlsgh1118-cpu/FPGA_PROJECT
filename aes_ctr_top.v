@@ -31,6 +31,7 @@ module aes_ctr_top (
 
     assign c_text = p_text ^ key_stream;
     assign ready  = aes_done;
+    assign p_text = c_text ^ key_stream;
 
     always @(posedge clk or posedge reset) begin
         if (reset)         ctr <= 64'h0;
